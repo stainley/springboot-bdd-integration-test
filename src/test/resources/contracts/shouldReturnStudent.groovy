@@ -3,23 +3,16 @@ package contracts
 import org.springframework.cloud.contract.spec.Contract
 
 Contract.make {
-    description("should return 1")
-
+    description("Should return a student")
     request {
+        method GET()
         url "/students/1"
-        method  GET()
     }
-
     response {
         status OK()
         headers {
             contentType applicationJson()
         }
-
-        body(
-                id: 1L,
-                name: "Mark",
-                grade: 85
-        )
+        body(id: 1, name: "Mark", grade: 10)
     }
 }
