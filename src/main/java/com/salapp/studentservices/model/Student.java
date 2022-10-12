@@ -1,9 +1,6 @@
 package com.salapp.studentservices.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +12,7 @@ import javax.persistence.Id;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Student {
 
     @Id
@@ -23,5 +21,14 @@ public class Student {
 
     @Column(name = "NAME", nullable = false)
     private String name;
+
+    private boolean active;
+
+    private int grade;
+
+    public Student(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
 }
